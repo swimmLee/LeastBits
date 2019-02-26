@@ -15,9 +15,15 @@ public class LeastBits {
         byte val = 0;
         System.out.println("Enter an integer to find the smallest storage. ");
         ans = kb.nextLine();
-        Long number;
-        
-        number = Long.parseLong(ans);
+        Long number = 0L;
+        try{
+            number = Long.parseLong(ans);
+        }
+        catch(NumberFormatException e){
+            System.out.println("Your number input is too large to parse.");
+            number = Long.MAX_VALUE;
+            System.out.println("the largest number allowed is " +number+ "\n");
+        }
         System.out.println("Your number is "+ number);
         
         if((number <= Byte.MAX_VALUE) && (number >= Byte.MIN_VALUE)){
@@ -30,11 +36,11 @@ public class LeastBits {
         }
         else if ((number <= Integer.MAX_VALUE) && (number >= Integer.MIN_VALUE)){
             //val = (short)number;
-            System.out.println("an integer (four bytes) to hold your number.");
+            System.out.println("an integer (four bytes) will hold your number.");
         }
         else if ((number <= Long.MAX_VALUE) && (number >= Long.MIN_VALUE)){
             //val = (short)number;
-            System.out.println("a long integer (eight bytes) to hold your number.");
+            System.out.println("a long integer (eight bytes) will hold your number.");
         }
     }
     
